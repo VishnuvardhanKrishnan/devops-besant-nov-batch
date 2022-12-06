@@ -4,13 +4,13 @@ pipeline {
         timestamps()
     }
     triggers{
-        pollSCM('* * * * *')
+        pollSCM('*/2 * * * * ')
     }
     stages {
         stage("Cron Task") {
             steps {
                 echo "Hey, There!"
-                git url:"git@github.com:VishnuvardhanKrishnan/devops-aug-sep-batch.git"
+                git credentialsId: 'github-creds', url: "git@github.com:VishnuvardhanKrishnan/devops-besant-nov-batch.git", branch: 'main'
             }
         }
     }

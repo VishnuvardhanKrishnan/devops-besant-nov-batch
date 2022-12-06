@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Maven Project') {
             steps {
-                git credentialsId: 'c56e486a-f547-41ad-add8-933df79c1f4e', url: "git@github.com:VishnuvardhanKrishnan/devops-aug-sep-batch.git", branch: 'maven'
+                git credentialsId: 'github-creds', url: "git@github.com:VishnuvardhanKrishnan/devops-besant-nov-batch.git", branch: 'main'
                 sh """
                     git branch -a
                     git checkout -b branchFromGit

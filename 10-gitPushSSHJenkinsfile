@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Git Push') {
             steps {
-                git credentialsId: 'github-ssh-key', url: "git@github.com:VishnuvardhanKrishnan/devops-aug-sep-batch.git", branch: 'main'
+                git credentialsId: 'github-creds', url: "git@github.com:VishnuvardhanKrishnan/devops-besant-nov-batch.git", branch: 'main'
                 sshagent(credentials: ['github-ssh-key']) {
                     sh """
                         echo "Workspace is $WORKSPACE"
