@@ -34,8 +34,9 @@ pipeline {
                 withCredentials([file(credentialsId: 'aws-ec2-key-pair', variable: 'keyFile')]) {
                     script {
                         writeFile file: 'devops-training.pem', text: readFile(keyFile)
+                        sh("chmod 400 devops-training.pem")
                         sh("touch test")
-                        sh("scp -i private.pem -pr test ec2-user@3.109.213.192/:/tmp/")
+                        sh("scp -o 'StrictHostKeyChecking no' -i devops-training.pem -pr test ec2-user@3.109.213.192:/tmp/")
                     }
                 }
             }
